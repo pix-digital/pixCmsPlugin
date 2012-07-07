@@ -30,14 +30,14 @@ class PluginMenuTable extends Doctrine_Table
         return $q->fetchOne();
     }
 
-    public function retrieveMenuForCulture($root_slug, $culture = 'fr')
+    public function retrieveMenuForCulture($slug, $culture = 'fr')
     {
         $q = $this->createQuery('a');
 
         $this->addCultureQuery($q, $culture);
         $this->addActiveQuery($q);
 
-        $q->andwhere('t.slug = ?', $root_slug);
+        $q->andwhere('t.slug = ?', $slug);
 
         return $q->fetchOne();
     }
