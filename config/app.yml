@@ -1,0 +1,18 @@
+all:
+  pixCms:
+    routes_register: true
+
+  pixPage:
+    enabled_cultures:
+      fr:
+        code: fr
+        label: français
+
+    metas:
+      default_title: # finish title with a dash
+      default_description: # finish description with a dash
+      default_keywords: # finish list with a comma
+
+    diaporamas:
+      base_path: /uploads/diaporamas
+      default_folder: default

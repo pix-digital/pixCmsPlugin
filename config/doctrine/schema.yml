@@ -1,0 +1,54 @@
+
+Page:
+  tableName: pix_page
+  actAs:
+    Timestampable:
+    I18n:
+      fields: [title, content, meta_title, meta_description, meta_keywords]
+
+  columns:
+    menu_id: integer
+    title: varchar(255)
+    content: clob
+    visuel: varchar(255)
+    diaporama_folder: varchar(255)
+    template: varchar(255)
+    meta_title: varchar(255)
+    meta_description: clob
+    meta_keywords: clob
+
+
+  relations:
+    Menus:
+      class: Menu
+      local: menu_id
+      onDelete: CASCADE
+      foreignAlias: Page
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
+
+
+Menu:
+  tableName: pix_menu
+  actAs:
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
+    Timestampable:
+    I18n:
+      fields: [label]
+      actAs:
+        Sluggable: { fields: [label], uniqueBy: [id, lang, label], canUpdate: false }
+
+  columns:
+    label: varchar(255)
+    root_id: integer
+    class: varchar(255)
+    enabled: boolean
+
+  options:
+    collate: utf8_unicode_ci
+    charset: utf8
+    

@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Page
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pix_page_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [=title, template, updated_at]
+        fields:
+          title:   { label: Titre }
+        sort: [created_at, desc]
+      filter:
+        display: [menu_id, template]
+      form:    ~
+      edit:    ~
+      new:     ~

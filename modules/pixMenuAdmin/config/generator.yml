@@ -1,0 +1,26 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Menu
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pix_menu_admin
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [enabled, =label, updated_at]
+        sort: [created_at, desc]
+        max_per_page:   200
+      filter:
+        display: [enabled]
+      form:    ~
+      edit:    ~
+      new:     ~
